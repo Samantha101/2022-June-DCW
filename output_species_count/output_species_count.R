@@ -6,7 +6,7 @@
 ## The aim of this script is to produce a table of species observation counts, and a bar plot
 ## showing the species counts for the most diverse genera in the survey
 
-
+getwd()
 
 # Load libraries (make sure they are installed first!)
 
@@ -68,7 +68,8 @@ write_csv(diverse_genus, 'output_species_count/species_counts_table.csv')
 
 ggplot(data = diverse_genus, mapping = aes(x = species_id, y = n, fill = genus)) +
   
-  geom_bar(stat = 'identity')
+  geom_bar(stat = 'identity') +
+  scale_fill_grey()
 
 
 ggsave('output_species_count/species_counts_barplot.png')
